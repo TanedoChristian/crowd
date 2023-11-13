@@ -1,0 +1,89 @@
+<div class="flex w-full">
+  <app-sidenav></app-sidenav>
+  <div class="flex flex-col w-full h-screen">
+    <app-header></app-header>
+    <main class="flex h-[92vh]">
+      <div class="w-[50%]">
+        <div class="p-5 flex flex-col gap-3">
+          <h1 class="text-3xl font-semibold">Contacts</h1>
+          <input
+            type="text"
+            placeholder="Seach for a contact"
+            class="h-10 p-3 bg-blue-50 border border-gray-200 rounded-md"
+          />
+          <h1 class="text-md font-semibold">Name or Phone Number</h1>
+        </div>
+
+        <div class="">
+          <app-contact-card></app-contact-card>
+        </div>
+      </div>
+
+      <div class="border-l border-gray-300 w-[60%]">
+        <div class="flex flex-col justify-center items-center h-full">
+          <div class="flex gap-3">
+            <img
+              src="https://previews.123rf.com/images/dekazigzag/dekazigzag2303/dekazigzag230300379/200559905-close-up-portrait-of-a-serious-handsome-man-looking-away-standing-isolated-on-studio-background.jpg"
+              class="h-32 w-48 rounded-lg object-cover border border-gray-300"
+            />
+            <div>
+              <h1 class="text-3xl font-bold">Thomes Lean</h1>
+              <p class="text-gray-500 font-semibold">UI / UX Designiner</p>
+              <div class="mt-3 flex gap-2">
+                <button
+                  class="px-5 py-2 rounded-lg font-semibold flex items-center gap-2 bg-violet-600 text-white text-center"
+                >
+                  <i class="fa-solid fa-message text-lg text-white"></i>
+                  Message
+                </button>
+
+                <button
+                  class="px-3 py-2.5 rounded-lg font-semibold flex items-center gap-2 bg-violet-600 text-white text-center"
+                >
+                  <span class="material-symbols-outlined"> more_horiz </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="w-full p-10 flex flex-col gap-5">
+            <div class="flex justify-between">
+              <h1 class="font-semibold text-base">Bio</h1>
+              <div class="w-[70%]">
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi
+                  assumenda ipsum porro quos atque rerum vero? Et recusandae
+                  modi dolorem, praesentium nostrum dolore nobis, nulla
+                  inventore saepe placeat tenetur impedit?
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <h1 class="font-semibold text-base">Email</h1>
+              <div class="w-[70%]">
+                <p>thomeslean@fullscale.io</p>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <h1 class="font-semibold text-base">Phone Number</h1>
+              <div class="w-[70%]">
+                <p>09608995656</p>
+              </div>
+            </div>
+            <div class="flex justify-center gap-3">
+              <div
+                class="text-center w-10 h-10 rounded-lg flex items-center justify-center border border-gray-300 shadow-md"
+              >
+                <i class="fa-regular fa-heart text-xl"></i>
+              </div>
+              <div
+                class="text-center w-10 h-10 rounded-lg flex items-center justify-center border border-gray-300 shadow-md"
+              >
+                <i class="fa-solid fa-user-xmark text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
