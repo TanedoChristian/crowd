@@ -1,8 +1,26 @@
 <div class="flex w-full">
-    <app-sidenav></app-sidenav>
-    <div class="flex flex-col w-full h-screen">
-      <app-header></app-header>
-      
-    </div>
+  <app-sidenav></app-sidenav>
+  <div class="flex flex-col w-full h-screen">
+    <app-header></app-header>
+    <main class="flex h-[92vh]">
+      <div class="w-[50%]">
+        <div class="p-5 flex flex-col gap-3">
+          <h1 class="text-3xl font-semibold">Contacts</h1>
+          <input
+            type="text"
+            placeholder="Seach for a contact"
+            class="h-10 p-3 bg-blue-50 border border-gray-200 rounded-md"
+          />
+          <h1 class="text-md font-semibold">Name or Phone Number</h1>
+        </div>
+
+        <div class="">
+          <app-message-card></app-message-card>
+        </div>
+      </div>
+      <div class="w-[50%]">
+        <app-message-inbox></app-message-inbox>
+      </div>
+    </main>
   </div>
-  
+</div>

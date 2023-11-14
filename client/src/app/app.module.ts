@@ -10,6 +10,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { ContactCardComponent } from './contact-card/contact-card.component';
 import { MessageViewComponent } from './message-view/message-view.component';
+import { MessageCardComponent } from './message-card/message-card.component';
+import { MessageInboxComponent } from './message-inbox/message-inbox.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { MessageViewComponent } from './message-view/message-view.component';
     SidenavComponent,
     ContactCardComponent,
     MessageViewComponent,
+    MessageCardComponent,
+    MessageInboxComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
