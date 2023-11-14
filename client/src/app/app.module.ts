@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { ContactCardComponent } from './contact-card/contact-card.component';
+import { MessageViewComponent } from './message-view/message-view.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
     HeaderComponent,
     SidenavComponent,
     ContactCardComponent,
+    MessageViewComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
