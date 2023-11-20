@@ -1,1 +1,73 @@
-<p>message-inbox works!</p>
+<div #videoGrid id="video-grid">
+  <!-- Video elements will be added dynamically here -->
+</div>
+
+<div class="h-full relative border-l border-gray-200">
+  <header
+    class="min-h-[8vh] max-h-[8vh] flex justify-between p-3 border-b border-gray-200 border-r border-l"
+  >
+    <div class="flex gap-3">
+      <img
+        src="https://previews.123rf.com/images/dekazigzag/dekazigzag2303/dekazigzag230300379/200559905-close-up-portrait-of-a-serious-handsome-man-looking-away-standing-isolated-on-studio-background.jpg"
+        class="h-10 w-10 rounded-full object-cover border border-gray-300"
+      />
+      <h1 class="text-xl font-bold text-gray-700">Thomes Lean</h1>
+    </div>
+    <div class="flex gap-5 items-center">
+      <i class="fa-solid fa-phone text-xl"></i>
+      <i class="fa-solid fa-video text-xl"></i>
+    </div>
+  </header>
+
+  <main class="h-[75vh] p-5 flex flex-col gap-2">
+    <div class="flex items-center gap-3">
+      <img
+        src="https://previews.123rf.com/images/dekazigzag/dekazigzag2303/dekazigzag230300379/200559905-close-up-portrait-of-a-serious-handsome-man-looking-away-standing-isolated-on-studio-background.jpg"
+        class="h-8 w-8 rounded-full object-cover border border-gray-300"
+      />
+      <p class="rounded-xl border border-gray-200 p-2 text-sm">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi assumenda
+        ipsum porro quos atque rerum vero?
+      </p>
+    </div>
+
+    <div *ngFor="let message of messageList">
+      <div class="flex justify-end">
+        <div class="flex gap-3 items-center">
+          <p
+            class="p-3 rounded-xl border border-gray-200 text-sm bg-blue-500 text-white"
+          >
+            {{ message.message }}
+          </p>
+          <img
+            src="https://previews.123rf.com/images/dekazigzag/dekazigzag2303/dekazigzag230300379/200559905-close-up-portrait-of-a-serious-handsome-man-looking-away-standing-isolated-on-studio-background.jpg"
+            class="h-8 w-8 rounded-full object-cover border border-gray-300"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div
+    class="absolute bottom-0 flex w-full h-[7vh] items-center justify-center border border-gray-300"
+  >
+    <div class="p-2">
+      <i class="fa fa-plus text-md"></i>
+    </div>
+    <form
+      class="flex gap-3 w-full p-2"
+      (ngSubmit)="sendMessage(); $event.preventDefault()"
+    >
+      <input
+        type="text"
+        [(ngModel)]="message.message"
+        name="message"
+        placeholder="Type your message"
+        class="w-[80%] p-2 outline-none focus:bg-blue-100"
+      />
+      <button type="button" (click)="sendMessage()">
+        <i class="fa fa-paper-plane text-md"></i>
+      </button>
+    </form>
+  </div>
+</div>

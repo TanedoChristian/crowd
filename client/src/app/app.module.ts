@@ -12,6 +12,10 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
 import { MessageViewComponent } from './message-view/message-view.component';
 import { MessageCardComponent } from './message-card/message-card.component';
 import { MessageInboxComponent } from './message-inbox/message-inbox.component';
+import { FormsModule } from '@angular/forms';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -26,7 +30,12 @@ import { MessageInboxComponent } from './message-inbox/message-inbox.component';
     MessageCardComponent,
     MessageInboxComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    SocketIoModule.forRoot(config),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
