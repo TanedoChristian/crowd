@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UserLoginDetails } from './interface/userLoginDetails';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +9,23 @@ import { UserLoginDetails } from './interface/userLoginDetails';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  public userDetails: UserLoginDetails = {
-    username: '',
+  user: UserLoginDetails = {
+    email: '',
     password: '',
   };
 
-  handleLogin(e: Event) {
-    e.preventDefault();
-
-    console.log(this.userDetails);
+  handleLogin() {
+    axios
+      .post('http://localhost:3000/api/login', this.user)
+      .then((data) => {
+        window.location.href = '/';
+      })
+      .catch((err) =>
+        Swal.fire({
+          title: 'Error',
+          text: 'Authentication Error',
+          icon: 'error',
+        })
+      );
   }
 }

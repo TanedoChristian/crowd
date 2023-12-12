@@ -1,12 +1,13 @@
-import mongoose, { Connection } from "mongoose";
+require("dotenv").config();
 
-const mongoUrl = "mongodb://localhost:27017/crowd";
-
-async function connecToMongo() {
-  try {
-    const connection = await mongoose.connect(mongoUrl);
-    console.log(`Connected to database`);
-  } catch (e) {
-    console.log(`Error: ${e}`);
-  }
+import mongoose from "mongoose";
+export default async function connectMongo() {
+  await mongoose
+    .connect("mongodb://127.0.0.1:27017/crowd")
+    .then(() => {
+      console.log(`Connected to mongo`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }

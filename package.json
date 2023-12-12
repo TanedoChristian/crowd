@@ -1,5 +1,13 @@
 {
   "dependencies": {
-    "ngx-socket-io": "^4.6.1"
+    "concurrently": "^8.2.2",
+    "ngx-socket-io": "^4.6.1",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.0.0"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
+    "start-client": "cd client && npm start",
+    "start-server": "cd server/src && nodemon --exec ts-node index.ts"
   }
 }
