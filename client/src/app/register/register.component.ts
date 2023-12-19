@@ -10,10 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent {
   user: User = {
-    userId: 0,
     firstname: '',
     lastname: '',
     address: '',
+    phoneNumber: '',
     dateOfBirth: '',
     username: '',
     email: '',
@@ -21,8 +21,6 @@ export class RegisterComponent {
   };
 
   handleSubmit() {
-    console.log(this.user);
-
     axios
       .post('http://localhost:3000/api/user', this.user)
       .then((data) => {
@@ -31,7 +29,7 @@ export class RegisterComponent {
           icon: 'success',
         });
 
-        window.location.href = '/';
+        window.location.href = '/login';
       })
       .catch((err) => console.log(err));
   }

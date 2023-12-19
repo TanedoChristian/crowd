@@ -3,61 +3,96 @@ import User from "../models/User";
 
 const userController = {
   getUsers: async (req: Request, res: Response) => {
-    const users = await User.find();
-    res.status(200).json(users);
+    try {
+      const users = await User.find();
+      res.status(200).json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ Message: "Internal Server Error" });
+    }
   },
+
+  getUserById: async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    try {
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ Message: "User not found" });
+      }
+
+      return res.status(200).json(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ Message: "Internal Server Error" });
+    }
+  },
+
   createUser: async (req: Request, res: Response) => {
     const {
-      userId,
       email,
       password,
       username,
+      phoneNumber,
       firstname,
       lastname,
       dateOfBirth,
       address,
     } = req.body;
 
-    const newUser = new User({
-      userId,
-      email,
-      password,
-      username,
-      firstname,
-      lastname,
-      dateOfBirth,
-      address,
-    });
+    try {
+      const newUser = new User({
+        email,
+        password,
+        username,
+        firstname,
+        phoneNumber,
+        lastname,
+        dateOfBirth,
+        address,
+      });
 
-    await newUser
-      .save()
-      .then(() => {
-        res.status(200).json({ Message: "Insert Success" });
-      })
-      .catch((err: any) => res.status(404).json({ Message: err }));
+      await newUser.save();
+      res.status(200).json({ Message: "Insert Success" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ Message: "Internal Server Error" });
+    }
   },
 
   updateUser: async (req: Request, res: Response) => {
-    const { id } = req.params;
+    const { _id } = req.body;
 
-    const user = await User.findOneAndUpdate(
-      { userId: id },
-      { $set: req.body }
-    );
+    try {
+      const user = await User.findOneAndUpdate({ _id }, { $set: req.body });
 
-    if (!user) {
-      res.status(404).json({ Message: `User ${id} not found` });
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      return res.status(200).json({ message: "Updated Successfully" });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: "Internal Server Error" });
     }
-
-    res.status(200).json({ Message: `Updated Successfully` });
   },
 
   deleteUser: async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    await User.deleteOne({ userId: id })
-      .then(() => res.status(200).json({ Message: "Deleted Successfully" }))
-      .catch((err: any) => res.status(404).json({ Message: err }));
+    try {
+      const result = await User.deleteOne({ _id: id });
+
+      if (result.deletedCount === 0) {
+        return res.status(404).json({ Message: "User not found" });
+      }
+
+      return res.status(200).json({ Message: "Deleted Successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ Message: "Internal Server Error" });
+    }
   },
 };
 

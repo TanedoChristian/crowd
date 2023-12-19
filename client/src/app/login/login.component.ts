@@ -17,8 +17,9 @@ export class LoginComponent {
   handleLogin() {
     axios
       .post('http://localhost:3000/api/login', this.user)
-      .then((data) => {
-        window.location.href = '/';
+      .then(({ data }) => {
+        localStorage.setItem('user', JSON.stringify(data));
+        window.location.href = '/home';
       })
       .catch((err) =>
         Swal.fire({

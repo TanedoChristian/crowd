@@ -1,16 +1,16 @@
 import { Schema, model } from "mongoose";
-import IUser from "../interfaces/IUser";
 
-const userSchema = new Schema<IUser>({
+import IContact from "../interfaces/IContact";
+
+const contactSchema = new Schema<IContact>({
   email: { type: String, required: true },
-  password: { type: String, required: true },
   firstname: { type: String, required: true },
   phoneNumber: { type: String, required: true },
   lastname: { type: String, required: true },
-  dateOfBirth: { type: String, required: true },
   address: String,
+  contactId: String,
 });
 
-const User = model<IUser>("User", userSchema);
+const Contact = model<IContact>("Contact", contactSchema);
 
-export default User;
+export default Contact;

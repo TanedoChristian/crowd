@@ -1,0 +1,53 @@
+<div class="flex w-full">
+  <app-sidenav></app-sidenav>
+  <div class="flex flex-col w-full h-screen">
+    <app-header></app-header>
+    <main class="flex h-[92vh] justify-center items-center bg-violet-300">
+      <div class="w-[60%] bg-white shadow-lg rounded-lg overflow-hidden p-5">
+        <div class="flex flex-col justify-center items-center h-full">
+          <div class="flex gap-3 p-5">
+            <img
+              src="https://previews.123rf.com/images/dekazigzag/dekazigzag2303/dekazigzag230300379/200559905-close-up-portrait-of-a-serious-handsome-man-looking-away-standing-isolated-on-studio-background.jpg"
+              class="h-32 w-48 rounded-lg object-cover border border-gray-300"
+            />
+            <div>
+              <h1 class="text-3xl font-bold">
+                {{ user.firstname }} {{ user.lastname }}
+              </h1>
+              <p class="text-gray-500 font-semibold">{{ user.email }}</p>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex gap-3 mt-5">
+              <h1 class="font-bold text-slate-700 text-xl">Phone Number:</h1>
+              <input
+                type="text"
+                class="text-lg text-gray-700 outline-1"
+                [(ngModel)]="user.phoneNumber"
+              />
+            </div>
+
+            <div class="flex gap-3 mt-5">
+              <h1 class="font-bold text-slate-700 text-xl">Address:</h1>
+              <input
+                type="text"
+                class="text-lg text-gray-700 outline-1 w-full"
+                value="Tisa Cebu City"
+                [(ngModel)]="user.address"
+              />
+            </div>
+
+            <div class="flex gap-3 w-[60%] mt-5">
+              <button
+                class="bg-violet-700 text-white font-bold p-3 w-[60%] rounded-xl"
+                (click)="handleUpdate()"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

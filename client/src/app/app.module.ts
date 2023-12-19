@@ -14,6 +14,7 @@ import { MessageCardComponent } from './message-card/message-card.component';
 import { MessageInboxComponent } from './message-inbox/message-inbox.component';
 import { FormsModule } from '@angular/forms';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { ProfileComponent } from './profile/profile.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -29,6 +30,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MessageViewComponent,
     MessageCardComponent,
     MessageInboxComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
